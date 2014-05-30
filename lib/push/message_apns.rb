@@ -71,7 +71,7 @@ module Push
       json['aps']['badge'] = badge if badge
       json['aps']['sound'] = sound if sound
       json['aps']['content-available'] = content_available if content_available
-      attributes_for_device.each { |k, v| json[k.to_s] = v } if attributes_for_device
+      json.merge! attributes_for_device if attributes_for_device
       json
     end
 
